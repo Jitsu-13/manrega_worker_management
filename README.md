@@ -40,10 +40,7 @@
 
 # Overview of My work 
 ## **ER Diagram**
-<p align="center">
-  <img width="800" height="500" src="https://github.com/piyush1856/cheerful-notebook-6741/blob/main/assets/Database%20ER%20diagram%20MGNREGA.jpeg?raw=true">
-</p>
-
+![1](https://user-images.githubusercontent.com/107523890/208396081-ac03ba65-1492-4ae2-9d6a-1367a0c5dfec.png)
 ## **Flow Chart**
 <p align="center">
   <img width="800" height="700" src="https://github.com/piyush1856/cheerful-notebook-6741/blob/main/assets/flow2.jpeg?raw=true">
