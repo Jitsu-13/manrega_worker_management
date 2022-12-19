@@ -1,0 +1,84 @@
+create table gramPanchayat(
+GPID int Primary Key auto_increment,
+gName varchar(20) not null,
+gAddress varchar(20) not null,
+gphone varchar(20) not null unique,
+gpassword varchar(20) not null
+);
+
+
+create table project(
+pid int Primary Key auto_increment,
+pgpid int,
+pName varchar(20) not null,
+pcost int,
+pduration int not null,
+foreign key (pgpid) references gramPanchayat(GPID)
+);
+
+create table employee(
+eid int Primary Key auto_increment,
+egpid int,
+epid int,
+ename varchar(20) not null,
+eaddress varchar(20) not null,
+edate_joined date not null,
+ewage int not null,
+
+foreign key (epid) references project(pid),
+foreign key (egpid) references gramPanchayat(GPID)
+);
+
+
+
+> desc grampanchayat;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| GPID      | int         | NO   | PRI | NULL    | auto_increment |
+| gName     | varchar(20) | NO   |     | NULL    |                |
+| gAddress  | varchar(20) | NO   |     | NULL    |                |
+| gphone    | varchar(20) | NO   | UNI | NULL    |                |
+| gpassword | varchar(20) | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+
+
+> desc project;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| pid       | int         | NO   | PRI | NULL    | auto_increment |
+| pgpid     | int         | YES  | MUL | NULL    |                |
+| pName     | varchar(20) | NO   |     | NULL    |                |
+| pcost     | int         | YES  |     | NULL    |                |
+| pduration | int         | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+
+
+> desc employee;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| eid          | int         | NO   | PRI | NULL    | auto_increment |
+| egpid        | int         | YES  | MUL | NULL    |                |
+| epid         | int         | YES  | MUL | NULL    |                |
+| ename        | varchar(20) | NO   |     | NULL    |                |
+| eaddress     | varchar(20) | NO   |     | NULL    |                |
+| edate_joined | date        | NO   |     | NULL    |                |
+| ewage        | int         | NO   |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+
+
+
+
+
+insert into employee(egpid,epid,ename,eaddress,edate_joined,ewage) values(1,1,'Ritesh', 'Ranchi', curdate(),500);
+insert into project (pgpid,pname,pcost,pduration) values(1,'Irrigation',100000, 90);
+insert into grampanchayat (gname,gaddress,gphone,gpassword) values('Piyush', 'Godda', '9973061351', 'Piyush@123');
+
+
+
+
+
+
+
